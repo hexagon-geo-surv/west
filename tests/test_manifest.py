@@ -2983,7 +2983,7 @@ def test_import_loop_detection_self(manifest_repo, py_rec_limit):
            import: west.yml
         ''')
 
-    with pytest.raises(_ManifestImportDepth):
+    with pytest.raises(_ManifestImportDepth, match=r'\.yml.*too.*deep'):
         MF()
 
 
